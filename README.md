@@ -1,52 +1,65 @@
-# 最优化方法实验报告（第 4-7 章）
+# 最优化方法实验报告仓库
 
-本仓库整理了《最优化方法与应用》实验报告相关材料，包括第 4 章无约束优化、第 5 章约束优化、第 6 章线性/整数规划、第 7 章最小二乘与迭代法的源码、运行截图和 Word 报告。
+本仓库整理《最优化方法与应用》实验代码、运行截图、生成脚本和 Word 报告。内容覆盖第 4 章到第 7 章，适合作为课程实验提交材料和复现实验结果的索引。
 
-## 目录结构
+## 内容总览
+
+| 章节 | 目录/脚本 | 主要内容 |
+| --- | --- | --- |
+| 第 4 章 | `src/chapter4/optimization_lab.py` | 无约束优化、一维搜索、修正牛顿、非线性共轭梯度等 |
+| 第 5-7 章 | `src/chapter5_7/build_report.py` | 约束优化、线性/整数规划、最小二乘与迭代法 |
+| 截图与曲线 | `assets/`、`output/` | 报告使用的运行截图、图表和中间输出 |
+| 最终报告 | `reports/` | 第 4-7 章合并版 Word 报告和阶段报告 |
+
+## 仓库结构
 
 ```text
-.
+optimization-lab-report/
 ├── src/
-│   ├── chapter4/optimization_lab.py      # 第 4 章例题与课后题源码
-│   └── chapter5_7/build_report.py        # 第 5-7 章源码、截图与报告生成脚本
+│   ├── chapter4/optimization_lab.py
+│   └── chapter5_7/build_report.py
 ├── assets/
-│   ├── chapter4/                         # 第 4 章运行截图与曲线
-│   └── chapter5_7/                       # 第 5-7 章运行截图与曲线
+│   ├── chapter4/
+│   └── chapter5_7/
+├── output/
+│   └── optimization_lab_report/
 ├── reports/
 │   ├── 优化方法实验报告_第4-7章合并版.docx
 │   └── 优化方法实验报告_第5-7章.docx
-└── output/                               # 原始生成输出备份
+├── requirements.txt
+└── README.md
 ```
-
-## 实验内容
-
-- 第 4 章：最速下降法、动量法、牛顿法、FR 共轭梯度法、坐标轮换法、一维搜索、修正牛顿法、非线性共轭梯度法。
-- 第 5 章：拉格朗日乘子法、外点罚函数法、内点罚函数法、广义乘子法、可行方向法、二次逼近法、极大熵法。
-- 第 6 章：线性规划、0-1 规划、背包问题、指派问题、运输问题、几何优化。
-- 第 7 章：Cholesky、QR、SVD、Jacobi、Gauss-Newton、Levenberg-Marquardt 及相关最小二乘实验。
 
 ## 运行方式
 
-建议使用 Python 3.10 及以上版本。
+建议使用 Python 3.10 及以上版本：
 
 ```bash
-python -m pip install -r requirements.txt
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
 python src/chapter4/optimization_lab.py
 python src/chapter5_7/build_report.py
 ```
 
-运行后会更新：
+运行后会更新或生成：
 
 - `assets/chapter4/`：第 4 章运行截图与曲线。
 - `output/optimization_lab_report/screenshots/`：第 5-7 章截图。
 - `output/optimization_lab_report/优化方法实验报告_第5-7章.docx`：第 5-7 章报告。
 
-最终合并版报告已整理在：
+## 报告说明
+
+最终合并版报告位于：
 
 ```text
 reports/优化方法实验报告_第4-7章合并版.docx
 ```
 
-## 说明
+源码按题号和章节组织，运行结果用于支撑报告中的截图、表格和结论。第 5-7 章脚本在没有模板文件时会使用空白 Word 文档生成报告，方便在不同电脑上复现。
 
-源码均按题号组织，运行结果用于支撑实验报告中的截图、表格和结论。第 5-7 章脚本会在没有模板文件时使用空白 Word 文档生成报告，便于在不同电脑上直接复现。
+## 维护规则
+
+- 同一门最优化课程的后续实验继续放在本仓库。
+- 报告、源码、截图和生成脚本同步维护。
+- 不提交虚拟环境、缓存和本机临时文件。
